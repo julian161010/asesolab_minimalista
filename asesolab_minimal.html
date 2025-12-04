@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ASESOLAB - Abogados Fiscalistas</title>
+	<meta name="description" content="ASESOLAB - Abogados fiscalistas: planificación tributaria, reestructuración empresarial y protección patrimonial.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--airbnb-red: #FF385C;
+			--black: #000000;
+			--dark-gray: #222222;
+			--gray: #717171;
+			--light-gray: #DDDDDD;
+			--bg-light: #F7F7F7;
+		}
+		
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+			color: var(--dark-gray);
+			line-height: 1.5;
+			background: #FFFFFF;
+			font-weight: 400;
+			font-size: 16px;
+		}
+		
+		/* Header - Mobile First */
+		header {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background: #FFFFFF;
+			border-bottom: 1px solid #EBEBEB;
+			z-index: 1000;
+		}
+		
+		nav {
+			padding: 14px 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			max-width: 100%;
+		}
+		
+		.logo {
+			font-size: 18px;
+			font-weight: 600;
+			color: var(--airbnb-red);
+			letter-spacing: -0.2px;
+		}
+		
+		.cta-header {
+			padding: 8px 16px;
+			background: var(--airbnb-red);
+			color: white;
+			text-decoration: none;
+			border-radius: 8px;
+			font-weight: 600;
+			font-size: 14px;
+			transition: all 0.2s;
+			border: none;
+			cursor: pointer;
+			white-space: nowrap;
+		}
+		
+		.cta-header:hover {
+			background: #E31C5F;
+		}
+		
+		/* Hero Section - Mobile First */
+		.hero {
+			padding: 80px 20px 40px;
+		}
+		
+		.hero h1 {
+			font-size: clamp(28px, 8vw, 48px);
+			font-weight: 600;
+			line-height: 1.1;
+			margin-bottom: 16px;
+			letter-spacing: -0.5px;
+			color: var(--black);
+		}
+		
+		.hero-subtitle {
+			font-size: clamp(16px, 4vw, 18px);
+			color: var(--gray);
+			margin-bottom: 24px;
+			font-weight: 400;
+			line-height: 1.5;
+		}
+		
+		.cta-button {
+			display: inline-block;
+			padding: 14px 24px;
+			background: var(--black);
+			color: white;
+			text-decoration: none;
+			border-radius: 8px;
+			font-weight: 600;
+			font-size: 16px;
+			transition: all 0.2s;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+			text-align: center;
+		}
+		
+		.cta-button:hover {
+			background: #222222;
+		}
+		
+		/* Content Sections - Mobile First */
+		section {
+			padding: 48px 20px;
+		}
+		
+		.section-title {
+			font-size: clamp(24px, 6vw, 32px);
+			font-weight: 600;
+			margin-bottom: 8px;
+			letter-spacing: -0.4px;
+			color: var(--black);
+		}
+		
+		.section-subtitle {
+			font-size: clamp(16px, 4vw, 18px);
+			color: var(--gray);
+			margin-bottom: 32px;
+		}
+		
+		/* Grid Layouts - Mobile First */
+		.grid-3, .grid-2 {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+		
+		/* Cards - Mobile First */
+		.card {
+			background: white;
+			border: 1px solid #EBEBEB;
+			border-radius: 12px;
+			padding: 24px;
+			transition: all 0.2s;
+		}
+		
+		.card:hover {
+			box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+			border-color: var(--black);
+		}
+		
+		.card h3 {
+			font-size: 18px;
+			font-weight: 600;
+			margin-bottom: 8px;
+			color: var(--black);
+			line-height: 1.3;
+		}
+		
+		.card p {
+			color: var(--gray);
+			font-size: 15px;
+			line-height: 1.5;
+		}
+		
+		/* Featured Section */
+		.featured {
+			background: var(--bg-light);
+		}
+		
+		.featured-content {
+			max-width: 100%;
+			text-align: center;
+		}
+		
+		.featured h2 {
+			font-size: clamp(28px, 7vw, 40px);
+			font-weight: 600;
+			margin-bottom: 16px;
+			color: var(--black);
+			line-height: 1.2;
+		}
+		
+		.featured p {
+			font-size: clamp(16px, 4vw, 18px);
+			color: var(--gray);
+			margin-bottom: 32px;
+			line-height: 1.6;
+		}
+		
+		/* Comparison Section - Mobile First */
+		.comparison-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+		
+		.comparison-card {
+			background: white;
+			border: 1px solid #EBEBEB;
+			border-radius: 12px;
+			padding: 32px 24px;
+		}
+		
+		.comparison-card.highlight {
+			background: var(--black);
+			color: white;
+			border: 1px solid var(--black);
+		}
+		
+		.comparison-card h3 {
+			font-size: 20px;
+			font-weight: 600;
+			margin-bottom: 20px;
+			color: var(--black);
+		}
+		
+		.comparison-card.highlight h3 {
+			color: white;
+		}
+		
+		.comparison-card ul {
+			list-style: none;
+		}
+		
+		.comparison-card li {
+			padding: 10px 0;
+			font-size: 15px;
+			padding-left: 28px;
+			position: relative;
+			color: var(--gray);
+			line-height: 1.5;
+		}
+		
+		.comparison-card.highlight li {
+			color: rgba(255,255,255,0.9);
+		}
+		
+		.comparison-card li::before {
+			content: '✓';
+			position: absolute;
+			left: 0;
+			font-weight: 600;
+			font-size: 16px;
+		}
+		
+		.comparison-card.highlight li::before {
+			color: #4ADE80;
+		}
+		
+		.comparison-card:not(.highlight) li::before {
+			content: '✗';
+			color: #F43F5E;
+		}
+		
+		/* FAQ Section - Mobile First */
+		.faq-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 32px;
+		}
+		
+		.faq-item h3 {
+			font-size: 18px;
+			font-weight: 600;
+			margin-bottom: 8px;
+			color: var(--black);
+			line-height: 1.3;
+		}
+		
+		.faq-item p {
+			font-size: 15px;
+			color: var(--gray);
+			line-height: 1.6;
+		}
+		
+		/* CTA Section */
+		.cta-section {
+			text-align: center;
+			background: var(--bg-light);
+		}
+		
+		.cta-section h2 {
+			font-size: clamp(28px, 7vw, 40px);
+			font-weight: 600;
+			margin-bottom: 16px;
+			color: var(--black);
+			line-height: 1.2;
+		}
+		
+		.cta-section p {
+			font-size: clamp(16px, 4vw, 18px);
+			color: var(--gray);
+			margin-bottom: 32px;
+			line-height: 1.6;
+		}
+		
+		.contact-info {
+			margin-top: 40px;
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			align-items: center;
+		}
+		
+		.contact-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			color: var(--gray);
+			font-size: 15px;
+		}
+		
+		.contact-item a {
+			color: var(--dark-gray);
+			text-decoration: none;
+			font-weight: 500;
+			word-break: break-all;
+		}
+		
+		.contact-item a:hover {
+			color: var(--black);
+			text-decoration: underline;
+		}
+		
+		/* Footer */
+		footer {
+			background: var(--bg-light);
+			border-top: 1px solid #EBEBEB;
+			padding: 40px 20px;
+			text-align: center;
+			color: var(--gray);
+			font-size: 14px;
+		}
+		
+		.footer-brand {
+			font-weight: 600;
+			color: var(--black);
+			margin-bottom: 8px;
+			font-size: 16px;
+		}
+		
+		/* Video Player Styling - Mobile First */
+		.video-container {
+			margin: 32px 0;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+		}
+		
+		.video-container video {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+		
+		/* Tablet Breakpoint (min-width: 744px) */
+		@media (min-width: 744px) {
+			nav {
+				padding: 16px 40px;
+			}
+			
+			.logo {
+				font-size: 20px;
+			}
+			
+			.hero {
+				padding: 100px 40px 48px;
+			}
+			
+			section {
+				padding: 64px 40px;
+			}
+			
+			.grid-3 {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 20px;
+			}
+			
+			.grid-2 {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 20px;
+			}
+			
+			.comparison-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 20px;
+			}
+			
+			.faq-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 40px 48px;
+			}
+			
+			.cta-button {
+				width: auto;
+				display: inline-block;
+			}
+			
+			.contact-info {
+				flex-direction: row;
+				gap: 32px;
+			}
+			
+			.video-container {
+				margin: 48px 0;
+			}
+			
+			footer {
+				padding: 48px 40px;
+			}
+		}
+		
+		/* Desktop Breakpoint (min-width: 1128px) */
+		@media (min-width: 1128px) {
+			nav {
+				padding: 16px 80px;
+				max-width: 1760px;
+				margin: 0 auto;
+			}
+			
+			.hero {
+				padding: 120px 80px 64px;
+				max-width: 1760px;
+				margin: 0 auto;
+			}
+			
+			section {
+				padding: 80px 80px;
+				max-width: 1760px;
+				margin: 0 auto;
+			}
+			
+			.grid-3 {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 24px;
+			}
+			
+			.card {
+				padding: 32px;
+			}
+			
+			.comparison-grid {
+				gap: 24px;
+				max-width: 1120px;
+				margin: 0 auto;
+			}
+			
+			.comparison-card {
+				padding: 40px;
+			}
+			
+			.faq-grid {
+				max-width: 1200px;
+				margin: 0 auto;
+				gap: 48px 64px;
+			}
+			
+			.featured-content {
+				max-width: 720px;
+				margin: 0 auto;
+			}
+			
+			.cta-section p {
+				max-width: 640px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.contact-info {
+				gap: 48px;
+			}
+			
+			.video-container {
+				max-width: 1200px;
+				margin: 64px auto;
+			}
+			
+			footer {
+				padding: 48px 80px;
+			}
+		}
+		
+		/* Large Desktop (min-width: 1440px) */
+		@media (min-width: 1440px) {
+			.section-title {
+				font-size: 36px;
+			}
+			
+			.featured h2, .cta-section h2 {
+				font-size: 44px;
+			}
+		}
+		
+		/* Smooth transitions for all interactive elements */
+		a, button, .card, .comparison-card {
+			transition: all 0.2s ease;
+		}
+		
+		/* Prevent layout shift */
+		img, video {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+		
+		/* Touch target sizes for mobile */
+		@media (max-width: 743px) {
+			.cta-button, .cta-header {
+				min-height: 44px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="logo">ASESOLAB</div>
+			<a href="https://reuniones.clientify.com/#/asesorlab/agendar" target="_blank" class="cta-header">
+				Agendar
+			</a>
+		</nav>
+	</header>
+
+	<section class="hero">
+		<h1>Abogados fiscalistas que optimizan tu carga tributaria</h1>
+		<p class="hero-subtitle">Planificación fiscal estratégica, reestructuración empresarial y protección patrimonial. Todo incluido.</p>
+		<a href="https://reuniones.clientify.com/#/asesorlab/agendar" target="_blank" class="cta-button">
+			Solicitar consultoría gratuita
+		</a>
+		
+		<div class="video-container">
+			<video src="video/Copia de V1 de pie.mp4" poster="images/hero.jpg" controls></video>
+		</div>
+	</section>
+
+	<section>
+		<h2 class="section-title">Problemas que resolvemos</h2>
+		<p class="section-subtitle">Y que una gestoría tradicional nunca aborda</p>
+		<div class="grid-3">
+			<div class="card">
+				<h3>Pagas más impuestos de los necesarios</h3>
+				<p>Porque nadie analiza tu caso con visión estratégica.</p>
+			</div>
+			<div class="card">
+				<h3>Te informan tarde y con prisas</h3>
+				<p>La planificación fiscal requiere anticipación, no improvisación.</p>
+			</div>
+			<div class="card">
+				<h3>Solo recibes facturas</h3>
+				<p>Pero ninguna propuesta de optimización fiscal real.</p>
+			</div>
+			<div class="card">
+				<h3>Estructura societaria ineficiente</h3>
+				<p>Estás dejando oportunidades de ahorro sobre la mesa.</p>
+			</div>
+			<div class="card">
+				<h3>Sin soporte legal especializado</h3>
+				<p>Cuando surge un problema fiscal, no tienes quien te defienda.</p>
+			</div>
+			<div class="card">
+				<h3>Patrimonio desprotegido</h3>
+				<p>Frente a posibles riesgos fiscales o empresariales.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="featured">
+		<div class="featured-content">
+			<h2>En ASESOLAB hacemos lo contrario</h2>
+			<p>Diseñamos una estrategia fiscal a medida, revisamos tu situación cada trimestre y aplicamos todas las herramientas legales disponibles para reducir tu carga fiscal.</p>
+			<a href="https://reuniones.clientify.com/#/asesorlab/agendar" target="_blank" class="cta-button">
+				Agendar consultoría gratis
+			</a>
+		</div>
+	</section>
+
+	<section>
+		<h2 class="section-title">¿Qué hacemos por ti?</h2>
+		<p class="section-subtitle">Servicios principales</p>
+		<div class="grid-2">
+			<div class="card">
+				<h3>Planificación fiscal integral</h3>
+				<p>Optimización de impuestos con visión estratégica y análisis exhaustivo de tu situación.</p>
+			</div>
+			<div class="card">
+				<h3>Reestructuración empresarial</h3>
+				<p>Creación de estructuras eficientes adaptadas a tus objetivos empresariales y fiscales.</p>
+			</div>
+			<div class="card">
+				<h3>Cumplimiento fiscal y legal</h3>
+				<p>Control y seguimiento continuo con comunicación directa y proactiva.</p>
+			</div>
+			<div class="card">
+				<h3>Protección patrimonial</h3>
+				<p>Para empresarios y grupos familiares con estrategias de blindaje legal.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="featured">
+		<h2 class="section-title" style="text-align: center;">¿Por qué ASESOLAB?</h2>
+		<p class="section-subtitle" style="text-align: center;">La diferencia con una gestoría tradicional</p>
+		<div class="comparison-grid">
+			<div class="comparison-card highlight">
+				<h3>ASESOLAB</h3>
+				<ul>
+					<li>Equipo asignado: abogado fiscalista, contable y documentalista</li>
+					<li>Estrategia legal real con comunicación directa</li>
+					<li>Precios cerrados, sin sorpresas ni costes ocultos</li>
+					<li>Servicio integral: fiscal, contable, legal y laboral</li>
+				</ul>
+			</div>
+			<div class="comparison-card">
+				<h3>Gestorías tradicionales</h3>
+				<ul>
+					<li>Solo presentan impuestos</li>
+					<li>Sin planificación estratégica</li>
+					<li>Sin protección patrimonial</li>
+					<li>Te hacen perder más dinero</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<h2 class="section-title">Preguntas frecuentes</h2>
+		<div class="faq-grid">
+			<div class="faq-item">
+				<h3>¿Cómo empiezo?</h3>
+				<p>Agenda una consultoría gratuita donde analizaremos tu situación fiscal actual y te mostraremos oportunidades de optimización específicas para tu caso.</p>
+			</div>
+			<div class="faq-item">
+				<h3>¿Qué incluye el servicio?</h3>
+				<p>Equipo completo asignado, planificación fiscal trimestral, cumplimiento de obligaciones, asesoramiento legal continuo y protección patrimonial.</p>
+			</div>
+			<div class="faq-item">
+				<h3>¿Cuánto cuesta?</h3>
+				<p>Trabajamos con precios cerrados y transparentes. Durante la consultoría te presentaremos una propuesta personalizada sin compromisos.</p>
+			</div>
+			<div class="faq-item">
+				<h3>¿Qué me diferencia de una gestoría?</h3>
+				<p>Somos abogados fiscalistas especializados. No solo cumplimos obligaciones, diseñamos estrategias legales para reducir tu carga fiscal de forma segura.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-section">
+		<h2>Solicita tu sesión estratégica gratuita</h2>
+		<p>Analizamos tu caso, detectamos fugas de dinero y te mostramos cómo optimizar tu fiscalidad desde el primer día.</p>
+		<a href="https://reuniones.clientify.com/#/asesorlab/agendar" target="_blank" class="cta-button">
+			Agendar asesoría
+		</a>
+		<div class="contact-info">
+			<div class="contact-item">
+				<span>✉️</span>
+				<a href="mailto:asesor@asesolabygonzalbesasociados.com">asesor@asesolabygonzalbesasociados.com</a>
+			</div>
+			<div class="contact-item">
+				<span>📱</span>
+				<a href="https://wa.me/34658049749" target="_blank">658 04 97 49</a>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<p class="footer-brand">ASESOLAB</p>
+		<p>Despacho de Abogados Fiscalistas</p>
+		<p style="margin-top: 16px; opacity: 0.7;">© ASESOLAB. Todos los derechos reservados.</p>
+	</footer>
+</body>
+</html>
